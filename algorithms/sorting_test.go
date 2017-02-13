@@ -35,12 +35,42 @@ func BenchmarkBSort10000(b *testing.B) {
 	benchmarkBSort(10000, b)
 }
 
+func BenchmarkBSort100000(b *testing.B) {
+	benchmarkBSort(100000, b)
+}
+
 func benchmarkBSort(i int, b *testing.B) {
 	for j := 0; j < b.N; j++ {
 		b.StopTimer()
 		values := perm(i)
 		b.StartTimer()
 		Bubble_sort(values)
+	}
+}
+
+func BenchmarkBSortModified100(b *testing.B) {
+	benchmarkBSortModified(100, b)
+}
+
+func BenchmarkBSortModified1000(b *testing.B) {
+	benchmarkBSortModified(1000, b)
+}
+
+func BenchmarkBSortModified10000(b *testing.B) {
+	benchmarkBSortModified(10000, b)
+}
+
+func BenchmarkBSortModified100000(b *testing.B) {
+	benchmarkBSortModified(100000, b)
+}
+
+
+func benchmarkBSortModified(i int, b *testing.B) {
+	for j := 0; j < b.N; j++ {
+		b.StopTimer()
+		values := perm(i)
+		b.StartTimer()
+		Bubble_sort_modified(values)
 	}
 }
 
@@ -66,6 +96,10 @@ func BenchmarkQSort1000(b *testing.B) {
 
 func BenchmarkQSort10000(b *testing.B) {
 	benchmarkQSort(10000, b)
+}
+
+func BenchmarkQSort100000(b *testing.B) {
+	benchmarkQSort(100000, b)
 }
 
 func benchmarkQSort(i int, b *testing.B) {

@@ -2,7 +2,23 @@ package algorithms
 
 // Les https://en.wikipedia.org/wiki/Bubble_sort
 func Bubble_sort_modified(list []int) {
-	// Deres kode her
+	length := len(list)
+	for {
+		unsorted := true
+		for idx := 0; idx < length-1; idx++ {
+			if list[idx] > list[idx+1] {
+				temp := list[idx+1]
+				list[idx+1] = list[idx]
+				list[idx] = temp
+				unsorted = false
+			}
+		}
+		length -= 1 // det største elementet har flyttet seg til posisjonen length,
+			    // så nå slipper vi å gå like langt
+		if unsorted == true {
+			break // dersom ingen sortering har skjedd, betyr det at hele listen er sortert
+		}
+	}
 }
 
 // Implementering av Bubble_sort algoritmen
@@ -19,6 +35,7 @@ func Bubble_sort(list []int) {
 		}
 	}
 }
+
 
 // Implementering av Quicksort algoritmen
 func QSort(values []int) {
